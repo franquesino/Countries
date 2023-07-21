@@ -31,4 +31,22 @@ const getInfoId = async(id) => {
 };
 
 
+
+// const getInfoId = (id) => {
+//     return axios.get('http://localhost:5000/countries')
+//         .then(response => {
+//             const getCountryById = response.data;
+//             return {
+//                 id: getCountryById.id,
+//                 name: getCountryById.name,
+//                 activities: getCountryById.activities.map(el => el.name),
+//             };
+//         })
+//         .catch(e => {
+//             return 'Not found.';
+//         });
+// };
+
+
+
 module.exports = getInfoId;

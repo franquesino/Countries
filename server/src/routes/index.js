@@ -13,6 +13,7 @@ router.get('/countries', getCountries);
 router.get('/countries/:id', getCountriesById); // '/countries/?id='
 // router.get('/countries/', getCountriesByName);
 router.post('/activity', create)
+//router.delete('/countries/:id', deleteCountryById);
 
 // GET | /countries/name?= | /countries/id | /activity
 // POST | /activity

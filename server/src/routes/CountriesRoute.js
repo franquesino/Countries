@@ -93,9 +93,38 @@ const searchCountriesByName = async function (name) {
   }
 };
 
+
+
+// const deleteCountryById = async function (req, res, next) {
+//   try {
+//     const countryId = req.params.id;
+
+//     // existe o no el país en la db?
+//     const country = await Country.findByPk(countryId);
+//     if (!country) {
+//       return res.status(404).json({ error: 'Country not found' });
+//     }
+
+//     // eliminalo
+//     await Country.destroy({
+//       where: {
+//         id: countryId,
+//       },
+//     });
+
+//     // 
+//     return res.status(200).json({ message: 'Country deleted successfully' });
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
+
+
 module.exports = {
   getCountriesApi,
   getDetailCountries,
   searchCountriesByName,
   countries,
+  //deleteCountryById,
 };

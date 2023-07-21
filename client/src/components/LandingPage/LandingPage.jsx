@@ -23,9 +23,7 @@ const Landing = () => {
         <h3 className={style.love}>Hecho con &hearts; para henry</h3>
       </div>
 
-      <div>
-        <img src="your-image.jpg" alt="" />
-      </div>
+
     </div>
   );
 };

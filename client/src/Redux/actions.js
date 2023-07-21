@@ -10,7 +10,7 @@ export const SORT_CONTINENT = "SORT_CONTINENT";
 export const SORT_ACTIVITY = "SORT_ACTIVITY";
 export const ALL_ACTIVITY = "ALL_ACTIVITY";
 
-//  export const CLEAR_ACTIVITY = 'CLEAR_ACTIVITY';
+
 
 const API_URL = "http://localhost:3001";
 

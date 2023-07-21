@@ -10,6 +10,20 @@ const create = async function(req, res, next) {
     
 }
 
+// const create = function(req, res, next) {
+//     createActivity(req.body)
+//         .then(dataBody => {
+//             res.status(200).send(dataBody);
+//         })
+//         .catch(e => {
+//             next(e);
+//         });
+// };
+
+
+
+
+
 module.exports = {
     create
 }

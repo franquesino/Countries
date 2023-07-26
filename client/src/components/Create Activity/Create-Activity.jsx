@@ -1,3 +1,7 @@
+
+
+
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +17,12 @@ import logo from "../Details/logoHome.png";
 function CreateActivity() {
   const { width } = useWindowDimensions();
   const movil = 460;
-  const [error, setError] = useState("");
+  //const [error, setError] = useState(""); volver si no funca el de abajo
+  const [errors, setErrors] = useState({
+    name: "",
+    duration: "",
+    // Agrega más campos aquí si es necesario para la validación.
+  });
   const [mostrarError, setMostrarError] = useState(false);
   const [state, setState] = useState({
     name: "",
@@ -29,6 +38,9 @@ function CreateActivity() {
     dispatch(allCountries());
   }, [dispatch]);
 
+
+  
+
   function handleSelect(e) {
     if (state.countries.includes(e.target.value)) {
       console.log("You can not repeat the same country");
@@ -41,11 +53,35 @@ function CreateActivity() {
   }
 
   function handleChange(e) {
+    const { name, value } = e.target; //eliminar si no funca solo esta linea
     setState({
       ...state, // copia de datos para no eliminar lo que ya escribimos
       [e.target.name]: e.target.value,
     });
+    switch (name) { //eliminar si no
+      case "name":
+        if (!value.trim() || !/^[a-zA-Z\ áéíóúÁÉÍÓÚñÑ\s]*$/.test(value) || value.length < 3) {
+          setErrors((prevState) => ({ ...prevState, name: "The name must not contain special characters and must be larger than two" }));
+        } else {
+          setErrors((prevState) => ({ ...prevState, name: "" }));
+        }
+        break;
+  
+      case "duration":
+        if (!value || isNaN(value) || value < 1 || value > 24) {
+          setErrors((prevState) => ({ ...prevState, duration: "Duration must be a number between 1 and 24" }));
+        } else {
+          setErrors((prevState) => ({ ...prevState, duration: "" }));
+        }
+        break;
+      
+      default:
+        break;
+    }
   }
+
+
+
 
   function handleChoose(e) {
     setState({
@@ -105,7 +141,34 @@ function CreateActivity() {
       countries: [],
     });
     alert("Your activity was successfully created");
-    navegate("/countries");
+    //navegate("/countries");
+  }
+
+
+  function areFieldsValid() {
+    const { name, difficulty, season, countries } = state;
+  
+    if (
+      !name.trim() ||
+      !/^[a-zA-Z\ áéíóúÁÉÍÓÚñÑ\s]*$/.test(name) ||
+      name.length <= 3
+    ) {
+      return false;
+    }
+  
+    if (!difficulty) {
+      return false;
+    }
+  
+    if (!season.trim()) {
+      return false;
+    }
+  
+    if (countries.length < 1) {
+      return false;
+    }
+  
+    return true;
   }
   const PintarError = () => (
     <div className={styles.error}>All required fields</div>
@@ -151,6 +214,7 @@ function CreateActivity() {
                 }}
                 
               />
+              {errors.name && <p className={styles.error}>{errors.name}</p>} 
             </>
 
             <>
@@ -169,6 +233,7 @@ function CreateActivity() {
                 }}
                 required
               />
+              {errors.duration && <p className={styles.error}>{errors.duration}</p>}
             </>
             <label className={styles.label}>Difficulty</label>
             <div className={styles.contenedor}>
@@ -274,7 +339,11 @@ function CreateActivity() {
                 );
               })}
             </select>
-            <button className={styles.button} type="submit">
+            <button
+              className={`${styles.button} ${areFieldsValid() ? "" : styles.buttonDisabled}`}
+              type="submit"
+              disabled={!areFieldsValid()}
+            >
               CREATE
             </button>
             <div className={styles.contenedorC}>
@@ -308,3 +377,9 @@ function CreateActivity() {
 }
 
 export default CreateActivity;
+
+
+
+
+
+

@@ -16,12 +16,12 @@ const getInfoId = async(id) => {
             // id: getCountryById.id,
             // image: getCountryById.background_image?getCountryById.background_image:'https://besthqwallpapers.com/Uploads/8-3-2020/124076/thumb2-404-wallpaper-not-found-violet-sign-4k-violet-brickwall-404-wallpaper-not-found-violet-blank-display.jpg',
             // name: getCountryById.name,
-            // description: getCountryById.description_raw,
+            // continents: getCountryById.continents_raw,
             // activities: getCountryById.activities.map(el => el.name),
-            // released: getCountryById.released,
-            // rating: getCountryById.rating,
-            // platforms: getCountryById.platforms.map(el => el.platform.name),
-            // website: getCountryById.website
+            // capital: getCountryById.capital,
+            // subregion: getCountryById.subregion,
+            // area: getCountryById.area.map(el => el.area.name),
+            // population: getCountryById.population
         }
         return getCountryById;
     }

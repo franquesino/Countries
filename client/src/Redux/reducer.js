@@ -8,6 +8,11 @@ import {
   SORT_POPULATION,
   SORT_CONTINENT,
   SORT_ACTIVITY,
+  // CLEAR_FILTERS,
+  // CLEAR_CONTINENT_FILTER,
+  // CLEAR_POPULATION_FILTER,
+  // CLEAR_ACTIVITY_FILTER
+ 
 } from "./actions";
 
 const initialState = {
@@ -15,6 +20,11 @@ const initialState = {
   detail: [],
   copyCountries: [],
   allActivity: [],
+  error: "",
+  // filterByContinent: null, // Estado para almacenar el filtro por continente
+  // filterByPopulation: null, // Estado para almacenar el filtro por población
+  // filterByActivity: null,
+  
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -26,13 +36,28 @@ const rootReducer = (state = initialState, action) => {
         copyCountries: action.payload,
         allActivity: action.payload,
       };
-
+      // case GET_COUNTRY_NAME:
+      //   if (action.payload) {
+      //     return {
+      //       ...state,
+      //       countries: action.payload,
+      //       countrieName: action.payload,
+      //       error: "", // Limpiamos el mensaje de error si la búsqueda es exitosa
+      //     };
+      //   } else {
+      //     return {
+      //       ...state,
+      //       error: "No se encontró ningún país con ese nombre", // Establecemos el mensaje de error en caso de que no se encuentren resultados
+      //     };
+      //   }
     case GET_COUNTRY_NAME:
       return {
         ...state,
         countries: action.payload,
         countrieName: action.payload,
+      
       };
+    
 
     case GET_COUNTRY_ID:
       return {
@@ -118,6 +143,28 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         detail: action.payload,
       };
+      // case CLEAR_FILTERS:
+      //   return {
+      //     ...state,
+      //     countries: state.copyCountries,
+      //   };
+      //   case CLEAR_CONTINENT_FILTER:
+      //     return {
+      //       ...state,
+      //       filterByContinent: null, // Limpia el filtro por continente
+      //     };
+      //   case CLEAR_POPULATION_FILTER:
+      //     return {
+      //       ...state,
+      //       filterByPopulation: null, // Limpia el filtro por población
+      //     };
+      //   case CLEAR_ACTIVITY_FILTER:
+      //     return {
+      //       ...state,
+      //       filterByActivity: null, // Limpia el filtro por actividad
+      //     };
+
+    
     default:
       return { ...state };
   }

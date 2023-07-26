@@ -9,6 +9,35 @@ export const SORT_POPULATION = "SORT_POPULATION";
 export const SORT_CONTINENT = "SORT_CONTINENT";
 export const SORT_ACTIVITY = "SORT_ACTIVITY";
 export const ALL_ACTIVITY = "ALL_ACTIVITY";
+// actions.js
+//export const CLEAR_FILTERS = "CLEAR_FILTERS";// quitar si no funcaa
+//export const CLEAR_CONTINENT_FILTER = "CLEAR_CONTINENT_FILTER"; //quit sgte si no funca
+//export const CLEAR_POPULATION_FILTER = "CLEAR_POPULATION_FILTER";
+//export const CLEAR_ACTIVITY_FILTER= "CLEAR_ACTIVITY_FILTER";//hasta aca
+
+
+
+
+//eliminar sgtes si lo de home no funca:
+// export const clearContinentFilter = () => {
+//   return {
+//     type: "CLEAR_CONTINENT_FILTER",
+//   };
+// };
+
+// export const clearPopulationFilter = () => {
+//   return {
+//     type: "CLEAR_POPULATION_FILTER",
+//   };
+// };
+
+// export const clearActivityFilter = () => {
+//   return {
+//     type: "CLEAR_ACTIVITY_FILTER",
+//   };
+// };
+//hasta aqui eliminar
+
 
 
 
@@ -24,6 +53,51 @@ export function allCountries() {
     });
   };
 }
+
+
+
+
+// export function countryByName(name) {
+//   return async (dispatch) => {
+//     await axios
+//       .get(`${API_URL}/countries/?name=${name}`)
+//       .then((result) => {
+//         return dispatch({
+//           type: GET_COUNTRY_NAME,
+//           payload: result.data,
+//         });
+//       })
+//       .catch((e) => {
+//         console.log(e);
+        
+//       });
+//   };
+// }
+
+// actions.js
+export function clearFilters() {
+  return {
+    type: CLEAR_FILTERS,
+  };
+}
+
+
+// export function countryByName(name) {
+//   return async (dispatch) => {
+//     try {
+//       const result = await axios.get(`${API_URL}/countries/?name=${name}`);
+//       return dispatch({
+//         type: GET_COUNTRY_NAME,
+//         payload: result.data,
+//       });
+//     } catch (e) {
+//       console.log(e);
+//       // handle error here
+//       return null;
+//     }
+//   };
+// }
+
 
 export function countryByName(name) {
   return async (dispatch) => {
@@ -41,13 +115,28 @@ export function countryByName(name) {
   };
 }
 
+
+// export function countryById(id) {
+//   return async (dispatch) => {
+//     await axios.get(`${API_URL}/countries/${id}`).then((result) => {
+//       return dispatch({
+//         type: GET_COUNTRY_ID,
+//         payload: result.data,
+//       });
+//     });
+//   };
+// }
+
+
 export function countryById(id) {
   return async (dispatch) => {
     await axios.get(`${API_URL}/countries/${id}`).then((result) => {
-      return dispatch({
-        type: GET_COUNTRY_ID,
-        payload: result.data,
-      });
+      if(result.status == 200) {
+        return dispatch({
+          type: GET_COUNTRY_ID,
+          payload: result.data,
+        });
+      }
     });
   };
 }

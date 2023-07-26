@@ -35,6 +35,7 @@ function Details() {
               <p>POPULATION: {detail.population}</p>
               <p>AREA: {detail.area}</p>
               <p>SUB-REGION: {detail.subregion}</p>
+              <p>CONTINENT: {detail.continents}</p>
             </div>
           </section>
           <section className={styles.activity}>

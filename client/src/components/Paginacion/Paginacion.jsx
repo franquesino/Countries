@@ -5,11 +5,15 @@ import adelante from "./adelante-01.png";
 
 function Paginacion({ pag, setPag, max, input, setInput }) {
   const nextPage = () => {
-    if (input + 1 <= max) {
-      setInput(input + 1);
-      setPag(pag + 1);
+    if (Number(input) + 1 <= max) {
+      setInput(Number(input) + 1);
+      setPag(Number(pag) + 1)
     }
-  };
+    // if (input + 1 <= max) {
+    //   setInput(input + 1);
+    //   setPag(pag + 1);
+    }
+  
 
   const prevPage = () => {
     if (input - 1 >= 1) {
@@ -62,5 +66,6 @@ function Paginacion({ pag, setPag, max, input, setInput }) {
     </div>
   );
 }
+
 
 export default Paginacion;

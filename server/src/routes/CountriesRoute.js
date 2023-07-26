@@ -105,7 +105,7 @@ const searchCountriesByName = async function (name) {
 //       return res.status(404).json({ error: 'Country not found' });
 //     }
 
-//     // eliminalo
+//     // eliminar
 //     await Country.destroy({
 //       where: {
 //         id: countryId,

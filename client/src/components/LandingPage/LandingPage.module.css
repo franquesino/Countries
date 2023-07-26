@@ -4,6 +4,83 @@
     width: 100%;
     height: 100vh;
     background-color: #f4f3ec;
+    background-image: url('./landing.jpg');
+    background-size: 100% 100%;
+   
+    background-position: center;
+    
+    background-attachment: fixed;
+}
+
+.container h1 {
+    padding-top: 1px;
+    font-size: 2.5em;
+    font-weight: 500;
+    letter-spacing: 8px;
+    color: rgb(8, 11, 1);
+}
+
+.container h1 span {
+    font-weight: 1000;
+}
+
+.container p {
+    padding-top: 175px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.container input {
+    margin-top: 50px;
+}
+
+.myButton {
+	box-shadow: 3px 7px 0px 1px #383a39;
+	background:linear-gradient(to bottom, #252726 5%, #373a38 100%);
+	background-color:#282a29;
+	border-radius:5px;
+	border:1px solid #272928;
+	display:inline-block;
+	cursor:pointer;
+	color:#212121;
+	font-family:Arial;
+	font-size:17px;
+	padding:9px 25px;
+	text-decoration:none;
+	text-shadow:0px 2px 0px #e4eae7;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #b4bab7 5%, #edf1ef 100%);
+	background-color:#353736;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+.love {
+    left: 10px;
+    bottom: 0;
+    font-weight: 200;
+    font-size: 1em;
+    position: absolute;
+}
+  
+
+
+
+
+
+
+/* .container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
+    background-color: #f4f3ec;
 }
 
 .container h1 {
@@ -60,4 +137,6 @@
     font-weight: 200;
     font-size: 1em;
     position: absolute;
-}
+} */
+
+  

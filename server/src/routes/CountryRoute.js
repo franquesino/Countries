@@ -38,12 +38,12 @@ router.get('/', async(req, res) => {
 
 router.post('/', async(req, res) => {
     let { name} = req.body;
-    //let { name, image, description, released, rating, activities, platforms, website } = req.body;
+    //let { name, flags, continents, capital, subregion, activities, area, population } = req.body;
 
     try{
         let createCountry = await Country.create({
             name
-            //name, image, description, released, rating, platforms, website
+            //name, flags, continents, capital, subregion, area, population
         });
         
         let activityByDb = await Promise.all(activities.map(async el=> {
@@ -58,7 +58,7 @@ router.post('/', async(req, res) => {
 
         let countryCreated = (await Country.findOne({
             attributes: ['name','id'],
-            //attributes: [ 'name', 'image', 'id', 'description', 'released', 'rating', 'platforms', 'website' ],
+            //attributes: [ 'name', 'flags', 'id', 'continents', 'capital', 'subregion', 'area', 'population' ],
             where: {
                 name: name,
             },
@@ -76,14 +76,14 @@ router.post('/', async(req, res) => {
             id: countryCreated.id,
 
             // name: countryCreated.name,
-            // image: countryCreated.image,
+            // flags: countryCreated.flags,
             // id: countryCreated.id,
-            // description: countryCreated.description,
-            // released: countryCreated.released,
-            // rating: countryCreated.rating,
-            // platforms: countryCreated.platforms,
+            // continents: countryCreated.continents,
+            // capital: countryCreated.capital,
+            // subregion: countryCreated.subregion,
+            // area: countryCreated.area,
             // activities: countryCreated.Activities.map(el => el.name),
-            // website: countryCreated.website
+            // population: countryCreated.population
         };
         res.status(200).json(countryCreated);
     }

@@ -178,6 +178,12 @@
         -webkit-box-shadow: -6px 8px 12px -11px rgba(0,0,0,0.77);
         -moz-box-shadow: -6px 8px 12px -11px rgba(0,0,0,0.77);
     }
+
+    .buttonDisabled {
+        pointer-events: none;
+        cursor: default;
+        opacity: 0.5; /* Puedes ajustar la opacidad a tu gusto para que el botón se vea deshabilitado */
+      }
     
     .contenedorC{
         display: flex;
